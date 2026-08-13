@@ -21,3 +21,11 @@ Mensagem Recebida: 'ganhe já'
 Classificação do Modelo: SPAM
 Ação do Bot: 🚫 [BLOQUEADO] Mensagem descartada por conteúdo suspeito.
 ==================================================
+
+
+
+
+Modelo de atendimento concluido!
+
+Frase do Usuário: quero ver o boleto
+Intenção Identificada: financeiro
