@@ -109,4 +109,75 @@ Mensagem 3: 'Minha conexao caindo toda hora'
 # Para a entrega completa deste LAB03 você precisa colar o código corrigido com os TODOs preenchidos, a acurácia obtida e responder:
 # 1 - Qual foi a acurácia obtida pelo modelo no conjunto de teste e por que, em um dataset tão pequeno (9 exemplos), essa métrica pode ser enganosa?
 # 2 - Como o modelo de Árvore de Decisão (DecisionTreeClassifier) toma a decisão de separar as intenções do usuário?
-# 3 - Qual é o risco de utilizar uma Árvore de Decisão sem limite de profundidade (max_depth) em datasets de texto maiores?
+# 3 - Qual é o risco de utilizar uma Árvore de Decisão sem limite de profundidade (max_depth) em datasets de texto maiores
+
+
+
+
+--- RESULTADOS DO LAB 04 ---
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
+
+#Atendimento Agência de Viagens
+dados_agencia = {
+    'mensagem' : [
+        'Qual o peso maximo da bagagem', 
+        'O que não posso levar na mala', 
+        'Qual o valor de despacho da mala extra', 
+        'Minha mala não chegou na esteira',
+
+        'Gostaria de uma passagem pra Brasilia',
+        'Quais são os pacotes de voo em promoção', 
+        'Preciso de um voo para o Rio de Janeiro', 
+        'Quais são as opções de passagem mais em baratas',
+
+        'Fiquei doente e não vou poder viajar, como peço meu reembolso?', 
+        'Infelizmente terei de cancelar, como peço estorno?', 
+        'O meu hotel fechou e preciso receber o meu dinheiro de volta.', 
+        'Comprei a passagem errada preciso do dinheiro de volta'
+    ],
+
+    'intencao' : [
+        'informacao_bagagem', 'informacao_bagagem', 'informacao_bagagem', 'informacao_bagagem',
+        'comprar_passagem', 'comprar_passagem', 'comprar_passagem', 'comprar_passagem',
+        'solicitar_reembolso', 'solicitar_reembolso', 'solicitar_reembolso', 'solicitar_reembolso'
+    ]
+}
+
+df4 = pd.DataFrame(dados_agencia)
+
+X = df4 ['mensagem']
+y = df4 ['intencao']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+Tfidf = TfidfVectorizer()
+X_train_vec = Tfidf.fit_transform(X_train)
+X_test_vec = Tfidf.transform(X_test)
+
+modelo_nb = MultinomialNB()
+modelo_nb.fit(X_train_vec, y_train)
+
+frases_ineditas = [
+    "Posso levar uma mochila extra no avião?",
+    "Quero comprar um bilhete de ida para Salvador",
+    "Como faço para receber o estorno do voo cancelado?"
+]
+
+frases_ineditas_vec = Tfidf.transform(frases_ineditas)
+
+predicoes = modelo_nb.predict(frases_ineditas_vec)
+
+print("=== RESULTADO DAS PREDICÕES ===")           
+for frase, intencao in zip(frases_ineditas, predicoes):
+    print(f"Mensagem: '{frase}' -> Intenção: [{intencao}]")
+
+
+=== RESULTADO DAS PREDICÕES ===
+Mensagem: 'Posso levar uma mochila extra no avião?' -> Intenção: [informacao_bagagem]
+Mensagem: 'Quero comprar um bilhete de ida para Salvador' -> Intenção: [comprar_passagem]
+Mensagem: 'Como faço para receber o estorno do voo cancelado?' -> Intenção: [comprar_passagem]
+
+
