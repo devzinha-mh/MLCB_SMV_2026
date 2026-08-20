@@ -106,12 +106,17 @@ Mensagem 3: 'Minha conexao caindo toda hora'
 
 
   #========== PRODUÇÃO DO RELATÓRIO:==============
-# Para a entrega completa deste LAB03 você precisa colar o código corrigido com os TODOs preenchidos, a acurácia obtida e responder:
-# 1 - Qual foi a acurácia obtida pelo modelo no conjunto de teste e por que, em um dataset tão pequeno (9 exemplos), essa métrica pode ser enganosa?
-# 2 - Como o modelo de Árvore de Decisão (DecisionTreeClassifier) toma a decisão de separar as intenções do usuário?
-# 3 - Qual é o risco de utilizar uma Árvore de Decisão sem limite de profundidade (max_depth) em datasets de texto maiores
+O modelo acertou só 33% das vezes como usamos só 9 frases no total 6 para ensinar e 3 para testar, esse número engana muito.
+Com tão pouca informação, as frases que sobraram para o teste podem ser muito diferentes das que usamos para treinar, o computador acaba se apegando a palavras que apareceram por pura coincidência e, por isso, ele não consegue aprender a lógica de verdade para acertar frases novas que chegarem depois.
 
 
+A Árvore de Decisão funciona como um jogo de perguntas. Primeiro, o computador conta quantas vezes cada palavra aparece nas frases. Depois, ele começa a criar regras simples para separar os grupos, tipo:
+"Se a frase tiver a palavra senha, coloque no grupo de reset_senha. Se não tiver, mas tiver a palavra lenta, coloque no grupo de conexão."
+Ele vai fazendo essas perguntas uma atrás da outra até conseguir separar todas as intenções que ele aprendeu.
+
+
+O risco é o computador "decorar" as frases em vez de entender o que elas significam de verdade.
+Se você não colocar um limite, a árvore vai criando tantas regrinhas detalhadas que ela acaba decorando até os erros ou o jeito específico que cada pessoa escreveu no treino. No fim, ela fica ótima para as frases que ela já viu, mas se perde totalmente quando aparece qualquer frase um pouquinho diferente, porque ela ficou focada demais nos detalhes e esqueceu de aprender a lógica principal.
 
 
 --- RESULTADOS DO LAB 04 ---
