@@ -12,3 +12,34 @@ A configuração ngram_range=(1, 2) no TfidfVectorizer foi usada no modelo , sig
 A remoção de palavras genéricas permite que o modelo identifique e de preferencia a palavras mais relevantes, levando a classificações mais precisas.
 
 #========== FIM ==============
+
+
+
+
+
+
+--- RESULTADOS DO LAB 02 (AULA 03) ---
+
+--- Relatório de Classificação ---
+                     precision    recall  f1-score   support
+
+horario_atendimento       0.50      1.00      0.67         1
+        localizacao       0.00      0.00      0.00         1
+    troca_devolucao       0.00      0.00      0.00         1
+
+           accuracy                           0.33         3
+          macro avg       0.17      0.33      0.22         3
+       weighted avg       0.17      0.33      0.22         3
+
+--- Matriz de Confusão ---
+[[1 0 0]
+ [1 0 0]
+ [0 1 0]]
+
+ #========== PRODUÇÃO DO RELATÓRIO:==============
+# 1 - O que representam as métricas Precision, Recall e F1-Score no relatório?
+
+# 2 - Como interpretar a diagonal principal da Matriz de Confusão?
+# 3 - Por que a acurácia isolada pode ser enganosa quando temos classes desbalanceadas?
+# Todos os resultados devem ser inseridos no arquivo resultados_aula03.md
+#========== FIM ==============
