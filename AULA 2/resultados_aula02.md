@@ -182,4 +182,11 @@ Mensagem: 'Como faço para receber o estorno do voo cancelado?' -> Intenção: [
 
 #========== PRODUÇÃO DO RELATÓRIO:==============
 
+Este código implementa um classificador de intenções para mensagens de atendimento de agência de viagens, utilizando um fluxo de PLN padrão com scikit-learn:
+Dados: As mensagens e suas intenções são carregadas com pandas.
+Divisão de Dados: O conjunto é dividido em treinamento e teste (train_test_split) para validar o modelo.
+Vetorização TF-IDF: O TfidfVectorizer converte o texto em representações numéricas (vetores TF-IDF), destacando palavras importantes para a classificação.
+Classificador Naive Bayes: Um modelo MultinomialNB é treinado com os vetores TF-IDF para aprender a mapear mensagens para suas intenções.
+Predição: O modelo treinado é então usado para prever a intenção de novas mensagens, demonstrando sua capacidade de categorizar entradas de texto inéditas.
+
 
