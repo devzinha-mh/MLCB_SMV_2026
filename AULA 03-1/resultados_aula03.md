@@ -38,8 +38,11 @@ horario_atendimento       0.50      1.00      0.67         1
 
  #========== PRODUÇÃO DO RELATÓRIO:==============
 # 1 - O que representam as métricas Precision, Recall e F1-Score no relatório?
-
+Neste método de treinamento a IA avalia cada intenção utilizando métricas, a precision indica quantas vezes ela acertou o palpite, por exemplo: A cada mensagem observada a IA atribui uma intenção, considerando que a precisão do horario de atendimento foi de 50% significa que para cada analise geral feita ela acertou metade das vezes. 
+Já o recall indica a capacidade da mesma de encontrar todas as mensagens reais daquela intenção, sendo assim se o recall do horário de atendimento foi de 100% então todas as mensagens referentes a essa intenção foram encontradas. 
+E por fim o F1-Score é utilizado para encontrar uma média harmônica entre o precision e o recall, dito isso, quanto mais alto o score melhor foi o desempenho da IA.
 # 2 - Como interpretar a diagonal principal da Matriz de Confusão?
+A Matriz de Confusão apresentada no resultado pode ser interpretada da seguinte maneira, as linhas representam as classes verdadeiras(O que deveria ser), e as colunas as classes que o modelo previu. A diagonal principal, que são os numeros que vão do canto superior esquerdo ao canto inferior direito representam as previsões corretas, já os numeros fora da diagonal são as previsões incorretas.
 # 3 - Por que a acurácia isolada pode ser enganosa quando temos classes desbalanceadas?
-# Todos os resultados devem ser inseridos no arquivo resultados_aula03.md
-#========== FIM ==============
+Em contextos de classes desbalanceadas, onde a distribuição de categorias não é uniforme, a acurácia como métrica de desempenho pode ser enganosa. Um modelo pode atingir alta acurácia simplesmente por classificar majoritariamente a classe dominante, falhando, no entanto, na identificação das classes minoritárias. Para uma avaliação mais robusta e representativa da performance do modelo, especialmente em cenários com classes de interesse sub-representadas, é imprescindível complementar a análise com métricas como Precisão, Recall e F1-score. Estas métricas fornecem uma visão detalhada da capacidade do modelo em lidar com cada classe individualmente, revelando a ocorrência de falsos positivos e falsos negativos de maneira mais específica.
+
