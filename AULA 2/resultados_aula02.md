@@ -30,10 +30,9 @@ A função do naive bayes no código começa com a absorção das informações 
 
 
 
+
+
 --- RESULTADOS DO LAB 03 ---
-# ============================================================
-# LAB 03 - AULA 02 (MLCB): Preencha os blocos TODO
-# ============================================================
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.tree import DecisionTreeClassifier
@@ -56,28 +55,18 @@ dados_tech = {
 
 df3 = pd.DataFrame(dados_tech)
 
-# TODO 1: Separe o dataset em X (coluna 'mensagem') e y (coluna 'intencao')
 X = df3['mensagem']
 y = df3['intencao']
 
-# TODO 2: Realize a divisão em treino (70%) e teste (30%) com random_state=42
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# TODO 3: Instancie o CountVectorizer e ajuste/transforme os dados de treino e teste
 vectorizer = CountVectorizer()
 X_train_vec = vectorizer.fit_transform(X_train)
 X_test_vec = vectorizer.transform(X_test)
 
-# TODO 4: Instancie o DecisionTreeClassifier e treine o modelo com .fit()
-# modelo_arvore = ...
-# modelo_arvore.fit(...)
 modelo_arvore = DecisionTreeClassifier()
 modelo_arvore.fit(X_train_vec, y_train)
 
-# TODO 5: Gere as predições para o X_test_vec e exiba a acurácia
-# predicoes = modelo_arvore.predict(...)
-# acuracia = accuracy_score(...)
-# print(f"Acurácia do Modelo: {acuracia * 100:.2f}%")
 predicoes = modelo_arvore.predict(X_test_vec)
 acuracia = accuracy_score(y_test, predicoes)
 
@@ -117,6 +106,11 @@ Ele vai fazendo essas perguntas uma atrás da outra até conseguir separar todas
 
 O risco é o computador "decorar" as frases em vez de entender o que elas significam de verdade.
 Se você não colocar um limite, a árvore vai criando tantas regrinhas detalhadas que ela acaba decorando até os erros ou o jeito específico que cada pessoa escreveu no treino. No fim, ela fica ótima para as frases que ela já viu, mas se perde totalmente quando aparece qualquer frase um pouquinho diferente, porque ela ficou focada demais nos detalhes e esqueceu de aprender a lógica principal.
+
+
+
+
+
 
 
 --- RESULTADOS DO LAB 04 ---
@@ -184,5 +178,8 @@ for frase, intencao in zip(frases_ineditas, predicoes):
 Mensagem: 'Posso levar uma mochila extra no avião?' -> Intenção: [informacao_bagagem]
 Mensagem: 'Quero comprar um bilhete de ida para Salvador' -> Intenção: [comprar_passagem]
 Mensagem: 'Como faço para receber o estorno do voo cancelado?' -> Intenção: [comprar_passagem]
+
+
+#========== PRODUÇÃO DO RELATÓRIO:==============
 
 
