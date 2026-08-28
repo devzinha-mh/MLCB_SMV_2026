@@ -15,7 +15,7 @@
 - **Melhor modelo para este projeto:** [KNN ou Decision Tree]
 - **Justificativa técnica:** [Explique a escolha com base nas métricas estatísticas e no comportamento do fallback]
 
-
+1#
 
 Decision Tree:
 ------------------------------------------------------------
@@ -59,3 +59,95 @@ logistica_entregas       1.00      1.00      1.00         6
  [0 0 0 0 6]]
 
 Maior frequencia de erros: reclamações
+
+
+2#
+
+Decision Tree
+
+Input:
+[1/8] Digite sua frase: Quero comprar um sofá de três lugares para a minha sala.
+-> Chatbot: Intenção identificada: 'reclamacoes' (Confiança: 100.00%)
+----------------------------------------
+[2/8] Digite sua frase: Qual é o prazo de entrega para o armário de cozinha?
+-> Chatbot: Intenção identificada: 'vendas' (Confiança: 100.00%)
+----------------------------------------
+[3/8] Digite sua frase: Gostaria de solicitar o cancelamento do meu pedido de mesa.
+-> Chatbot: Intenção identificada: 'logistica_entregas' (Confiança: 100.00%)
+----------------------------------------
+[4/8] Digite sua frase: O guarda-roupa que comprei veio com um arranhão na porta.
+-> Chatbot: Intenção identificada: 'trocas_devolucoes' (Confiança: 100.00%)
+----------------------------------------
+[5/8] Digite sua frase: Vocês vendem cabeceira de cama estofada parcelado no cartão?
+-> Chatbot: Intenção identificada: 'vendas' (Confiança: 100.00%)
+----------------------------------------
+[6/8] Digite sua frase: Vocês vendem cabeceira de cama estofada parcelado no cartão?
+-> Chatbot: Intenção identificada: 'vendas' (Confiança: 100.00%)
+----------------------------------------
+[7/8] Digite sua frase: Amanhã vai chover muito na minha cidade.
+-> Chatbot: Intenção identificada: 'reclamacoes' (Confiança: 100.00%)
+----------------------------------------
+[8/8] Digite sua frase: Acho que sim, pode ser, não sei direito.
+-> Chatbot: Intenção identificada: 'trocas_devolucoes' (Confiança: 100.00%)
+
+
+KNN
+
+Input:
+[Teste 1/10]
+Digite a frase do cliente: Esse sofá possui garantia?
+Fallback: confiança insuficiente (33.33%). Encaminhando o cliente para a equipe humana.
+
+[Teste 2/10]
+Digite a frase do cliente: "Gostaria de saber as dimensões da cama de casal.
+Intenção identificada: vendas
+Confiança: 66.67%
+
+[Teste 3/10]
+Digite a frase do cliente: Quero saber o preço de um sofá de três lugares.
+Intenção identificada: vendas
+Confiança: 66.67%
+
+[Teste 4/10]
+Digite a frase do cliente: Gostaria de saber qual o preco do sofa retratil 3 lugares
+Intenção identificada: vendas
+Confiança: 100.00%
+
+[Teste 5/10]
+Digite a frase do cliente: Qual é o prazo de entrega para a minha cidade?
+Intenção identificada: logistica_entregas
+Confiança: 100.00%
+
+[Teste 6/10]
+Digite a frase do cliente: Preciso trocar uma cadeira que chegou com defeito.
+Intenção identificada: trocas_devolucoes
+Confiança: 100.00%
+
+[Teste 7/10]
+Digite a frase do cliente: Vocês oferecem montagem dos móveis em casa?
+Intenção identificada: suporte
+Confiança: 66.67%
+
+[Teste 8/10]
+Digite a frase do cliente: Quero cancelar a compra que fiz ontem.
+Intenção identificada: reclamacoes
+Confiança: 66.67%
+
+[Teste 9/10]
+Digite a frase do cliente: Como faço para solicitar a assistência técnica?
+Intenção identificada: trocas_devolucoes
+Confiança: 66.67%
+
+[Teste 10/10]
+Digite a frase do cliente: Recebi um produto diferente do que comprei.
+Intenção identificada: reclamacoes
+Confiança: 66.67%
+
+#3
+KNN teve os melhores resultados pois ele teve mais resultados acertivos comparado ao Decision Tree.
+
+O KNN foi o algoritmo escolhido por entregar o melhor desempenho estatístico no ambiente de teste por ser o único modelo
+capaz de viabilizar a lógica de segurança do chatbot.
+
+
+
