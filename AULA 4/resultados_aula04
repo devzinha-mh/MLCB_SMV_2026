@@ -1,1 +1,61 @@
 
+# Relatório de Avaliação NLU - SAC Móveis Residenciais
+## 1. Tabela Comparativa de Métricas (Dados de Teste)
+
+| Modelo | Acurácia Geral | F1-Score (Weighted) | Principais Erros na Matriz |
+| :--- | :--- | :--- | :--- |
+| **KNN (K=3)** | % | % | [Descreva quais classes se confundiram] |
+| **Decision Tree** | % | % | [Descreva quais classes se confundiram] |
+
+## 2. Análise dos Testes de Entrada (`input()`)
+- **Comportamento do KNN (10 testes):** [Como o KNN reagiu às variações das frases digitadas e ao fallback?]
+- **Comportamento da Decision Tree (8 testes):** [Como a Árvore de Decisão se comportou em comparação ao KNN?]
+
+## 3. Veredito Final
+- **Melhor modelo para este projeto:** [KNN ou Decision Tree]
+- **Justificativa técnica:** [Explique a escolha com base nas métricas estatísticas e no comportamento do fallback]
+
+
+
+Decision Tree:
+------------------------------------------------------------
+RELATÓRIO DE CLASSIFICAÇÃO:
+------------------------------------------------------------
+                    precision    recall  f1-score   support
+
+logistica_entregas       0.80      0.67      0.73         6
+       reclamacoes       1.00      0.67      0.80         6
+           suporte       0.75      1.00      0.86         6
+ trocas_devolucoes       0.83      0.83      0.83         6
+            vendas       0.71      0.83      0.77         6
+
+          accuracy                           0.80        30
+         macro avg       0.82      0.80      0.80        30
+      weighted avg       0.82      0.80      0.80        30
+
+------------------------------------------------------------
+
+Maior frequencia de erros: Vendas
+
+
+KNN:
+
+precision    recall  f1-score   support
+
+logistica_entregas       1.00      1.00      1.00         6
+       reclamacoes       1.00      1.00      1.00         6
+           suporte       1.00      1.00      1.00         6
+ trocas_devolucoes       1.00      1.00      1.00         6
+            vendas       1.00      1.00      1.00         6
+
+          accuracy                           1.00        30
+         macro avg       1.00      1.00      1.00        30
+      weighted avg       1.00      1.00      1.00        30
+
+[[6 0 0 0 0]
+ [0 6 0 0 0]
+ [0 0 6 0 0]
+ [0 0 0 6 0]
+ [0 0 0 0 6]]
+
+Maior frequencia de erros: reclamações
