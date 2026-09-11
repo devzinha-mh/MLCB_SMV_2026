@@ -73,29 +73,17 @@ def preprocessar_texto(texto: str) -> str: #texto bruto para higienizado
 
 def extrair_sentence_embedding(texto_limpo: str, modelo_emb) -> np.ndarray:
     """
-    Converte a frase limpa em um vetor denso único usando a média (Mean Pooling)
+    Converte a frase limpa em um vetor denso único usando o Máximo (Max Pooling)
     dos embeddings de cada palavra presente no vocabulário.
     """
     palavras = texto_limpo.split() #Quebra a frase limpa em uma lista de palavras individuais
     vetores = [modelo_emb[p] for p in palavras if p in modelo_emb] #Percorre palavra por palavra da lista e faz uma checagem de segurança
-    
+
     if len(vetores) == 0: #trava de segurança contra frases vazias ou desconhecidas
         return np.zeros(modelo_emb.vector_size) #retorna vetor nulo
-    
-    return np.mean(vetores, axis=0) #: Calcula a média matemática de cada uma das 50 dimensões entre os vetores de todas as palavras da frase.
-# O axis=0 instrui o NumPy a calcular a média coluna por coluna (ao longo das linhas), e não da matriz inteira.
 
-# Aplicação no Dataset
-df['mensagem_limpa'] = df['mensagem'].apply(preprocessar_texto) #Cria nova coluna na tabela para armazenar o resultado do texto higienizado
-
-# construir a matriz de entrada X de dados numéricos que o modelo vai utilizar para o treinamento
-X_densos = np.array([
-    extrair_sentence_embedding(txt, word_vectors) for txt in df['mensagem_limpa'] 
-]) #Percorre cada frase já limpa da tabela e a transforma em um vetor de 50 números usando o GloVe e converte essa lista de vetores em uma matriz 2D do NumPy, onde cada linha é uma mensagem do dataset e cada coluna representa uma dimensão semântica do embedding.
-
-y = df['intencao'].values #extrai o alvo/rotulo de saída ($y$) que o modelo precisa aprender a prever
-
-
+    return np.max(vetores, axis=0) #Para cada uma das 50 dimensões, pega o maior valor entre todos os vetores de palavras da frase.
+# O axis=0 instrui o NumPy a calcular o máximo coluna por coluna (ao longo das linhas), e não da matriz inteira.
 
 
 
