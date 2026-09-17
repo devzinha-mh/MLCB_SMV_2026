@@ -69,3 +69,13 @@ Quero ver apartamentos à venda na zona sul.
 Resposta Automática do SAC:
 **Atendimento de Vendas:** Ficamos felizes com seu interesse! Você pode conferir nosso catálogo de imóveis à venda em www.imobiliaria.com/vendas ou aguardar que um de nossos corretores entrará em contato em instantes.
 
+---------- Lab 04 -----------
+
+Quero cancelar o aluguel.
+- Intenção 2via_boleto_contrato
+- Confiança 33.3%
+- Status da Decisão UNCERTAIN (Fallback Acionado) | Limiar: 65%
+
+Resposta Automática do SAC:
+Desculpe, não consegui compreender com clareza a sua solicitação. Estou transferindo agora mesmo sua conversa para um de nossos atendentes.
+Por favor, aguarde um momento.
