@@ -236,3 +236,5 @@ print(f" Acurácia - KNN (Distância K=3): {acuracia_knn:.2%}")
 ---------- RESULTADO EXERCICIO 4-------------
 Acurácia - Regressão Logística (Linear): 57.14%
 Acurácia - KNN (Distância K=3): 71.43%
+
+O KNN lida melhor com frases muito curtas ou distantes no espaço vetorial, pois considera a proximidade da frase em relação aos exemplos mais semelhantes. Nesse experimento, isso é confirmado pela maior acurácia do KNN (71,43%) em comparação com a Regressão Logística (57,14%).
