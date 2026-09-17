@@ -84,8 +84,17 @@ def extrair_sentence_embedding(texto_limpo: str, modelo_emb) -> np.ndarray:
 
     return np.max(vetores, axis=0) #Para cada uma das 50 dimensões, pega o maior valor entre todos os vetores de palavras da frase.
 # O axis=0 instrui o NumPy a calcular o máximo coluna por coluna (ao longo das linhas), e não da matriz inteira.
+                                                     
+#Aplicação no Dataset
 
+df['mensagem_limpa'] = df['mensagem'].apply(preprocessar_texto) #Cria nova coluna na tabela para armazenar o resultado do texto higienizado
 
+# construir a matriz de entrada X de dados numéricos que o modelo vai utilizar para o treinamento
+X_densos = np.array([
+    extrair_sentence_embedding(txt, word_vectors) for txt in df['mensagem_limpa']
+]) #Percorre cada frase já limpa da tabela e a transforma em um vetor de 50 números usando o GloVe e converte essa lista de vetores em uma matriz 2D do NumPy, onde cada linha é uma mensagem do dataset e cada coluna representa uma dimensão semântica do embedding.
+
+y = df['intencao'].values #extrai o alvo/rotulo de saída ($y$) que o modelo precisa aprender a prever
 
 # 1. Treinamento do DecisionTreeClassifier
 modelo_nlu = DecisionTreeClassifier()
