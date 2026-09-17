@@ -87,9 +87,8 @@ def extrair_sentence_embedding(texto_limpo: str, modelo_emb) -> np.ndarray:
 
 
 
-# 1. Treinamento da Regressão Logística
+# 1. Treinamento do DecisionTreeClassifier
 modelo_nlu = DecisionTreeClassifier()
-#Cria o classificador de Regressão Logística. C=1.0: Ajusta o nível de regularização (evita que o modelo decore os dados/overfitting). max_iter=500: Define o número máximo de tentativas/iterações para encontrar os pesos matemáticos ideais.
 
 modelo_nlu.fit(X_densos, y) #Conecta as entradas numéricas (X_densos) com as intenções corretas (y).
 
