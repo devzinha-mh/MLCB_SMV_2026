@@ -40,3 +40,12 @@ RESPOSTA:
 ----------------- EXERCICIO 3 -------------------
 
 
+----------------- EXERCICIO 5 -------------------
+solicitação = {
+    "intencao": "comprar_medicamento",
+    "produto": "analgésico",
+    "quantidade": 2
+}
+
+print(solicitação)
+
