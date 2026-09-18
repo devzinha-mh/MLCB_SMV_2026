@@ -39,6 +39,25 @@ RESPOSTA:
 
 ----------------- EXERCICIO 3 -------------------
 
+def calcular_peso_tfidf(frequencia_geral):
+    if frequencia_geral == "muito_frequente":
+        return 0.1
+    elif frequencia_geral == "pouco_frequente":
+        return 0.9
+    else:
+        return 0.0
+
+palavra_teste = "vazamento"
+frequencia_teste = "pouco_frequente"
+
+peso_resultado = calcular_peso_tfidf(frequencia_teste)
+
+print(f"O peso TF-IDF para a palavra '{palavra_teste}' é: {peso_resultado}")
+
+#SAIDA DO CODIGO
+O peso TF-IDF para a palavra 'vazamento' é: 0.9
+
+RESPOSTA:
 
 ----------------- EXERCICIO 5 -------------------
 solicitação = {
