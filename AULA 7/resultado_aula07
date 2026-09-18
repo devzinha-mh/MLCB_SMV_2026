@@ -49,3 +49,7 @@ solicitação = {
 
 print(solicitação)
 
+{'intencao': 'comprar_medicamento', 'produto': 'analgésico', 'quantidade': 2}
+
+A Intenção (Intent) representa o que o usuário quer fazer o objetivo ou ação da mensagem. E Entidade/Slot: representa os dados ou 
+informações específicas necessários para executar essa intenção.
