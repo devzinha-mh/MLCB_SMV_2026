@@ -88,3 +88,5 @@ print(resultado)
 # SAÍDA DO CÓDIGO
 True
 
+RESPOSTA = A diferença principal é que o TF-IDFas palavras aluguel e locação são palavras diferentes mesmo que tenham significados muitos parecidos.
+Já o Word Embeddings transforma as palavras em vetoresa partir do contexto em que elas aparecem, quais palavras possuem significados semelhantes.
