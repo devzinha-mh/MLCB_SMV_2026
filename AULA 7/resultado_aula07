@@ -59,6 +59,22 @@ O peso TF-IDF para a palavra 'vazamento' é: 0.9
 
 RESPOSTA:
 
+----------------- EXERCICIO 4 -------------------
+
+vp = 80  # Verdadeiros Positivos
+fp = 20  # Falsos Positivos
+fn = 5   # Falsos Negativos
+
+# TODO: Calcule a Precisão usando a fórmula: VP / (VP + FP)
+precisao = vp / (vp + fp)
+
+print(f"{precisao * 100:.1f}")
+
+#SAIDA DO CODIGO
+80.0
+
+RESPOSTA:
+
 ----------------- EXERCICIO 5 -------------------
 solicitação = {
     "intencao": "comprar_medicamento",
