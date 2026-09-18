@@ -1,0 +1,42 @@
+----------------- EXERCICIO 1 -------------------
+
+tokens = ["os", "produtos", "comprados", "não", "chegaram"]
+stopwords = ["os", "não"]
+
+tokens_limpos = []
+
+for i in tokens:
+    if i in stopwords:
+        continue
+    elif i == "comprados":
+        tokens_limpos.append("comprar")
+    elif i == "chegaram":
+        tokens_limpos.append("chegar")
+    else:
+        tokens_limpos.append(i)
+
+print(tokens_limpos) 
+
+#SAIDA DO CODIGO
+['produtos', 'comprar', 'chegar']
+
+RESPOSTA:
+
+----------------- EXERCICIO 2 -------------------
+
+def validar_intenção(confianca):
+  if confianca >= 0.70:
+    print("Ação Executada")
+  else:
+    print("Fallback Acionado")
+
+validar_intenção(0.55)
+
+#SAIDA DO CODIGO
+Fallback Acionado
+
+RESPOSTA:
+
+----------------- EXERCICIO 3 -------------------
+
+
