@@ -20,7 +20,7 @@ print(tokens_limpos)
 #SAIDA DO CODIGO
 ['produtos', 'comprar', 'chegar']
 
-RESPOSTA:
+RESPOSTA = A Lematização usa dicionário e análise gramatical para garantir uma palavra real, enquanto o Stemming apenas corta sufixos por regras fixas, sem verificar se o resultado existe no idioma.
 
 ----------------- EXERCICIO 2 -------------------
 
@@ -35,7 +35,7 @@ validar_intenção(0.55)
 #SAIDA DO CODIGO
 Fallback Acionado
 
-RESPOSTA:
+RESPOSTA = Com threshold em 20%, o banco teria altíssimo Recall mas Precisão péssima, gerando excesso de Falsos Positivos, sobrecarregando a análise.
 
 ----------------- EXERCICIO 3 -------------------
 
@@ -57,7 +57,7 @@ print(f"O peso TF-IDF para a palavra '{palavra_teste}' é: {peso_resultado}")
 #SAIDA DO CODIGO
 O peso TF-IDF para a palavra 'vazamento' é: 0.9
 
-RESPOSTA:
+RESPOSTA = O TF-IDF combina a frequência da palavra no documento (TF) com a raridade dela no corpus todo (IDF), dando peso baixo a palavras comuns e peso alto a palavras raras
 
 ----------------- EXERCICIO 4 -------------------
 
@@ -72,7 +72,7 @@ print(f"{precisao * 100:.1f}")
 #SAIDA DO CODIGO
 80.0
 
-RESPOSTA:
+RESPOSTA = Falso Positivo bloqueia uma transação legítima, enquanto Falso Negativo aprova uma fraude real, gerando prejuízo financeiro direto à empresa.
 
 ----------------- EXERCICIO 5 -------------------
 solicitação = {
@@ -87,7 +87,7 @@ print(solicitação)
 
 {'intencao': 'comprar_medicamento', 'produto': 'analgésico', 'quantidade': 2}
 
-A Intenção (Intent) representa o que o usuário quer fazer o objetivo ou ação da mensagem. E Entidade/Slot: representa os dados ou 
+RESPOSTA =  A Intenção (Intent) representa o que o usuário quer fazer o objetivo ou ação da mensagem. E Entidade/Slot: representa os dados ou 
 informações específicas necessários para executar essa intenção.
 
 ----------------- EXERCICIO 6 -------------------
