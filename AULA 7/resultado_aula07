@@ -65,7 +65,6 @@ vp = 80  # Verdadeiros Positivos
 fp = 20  # Falsos Positivos
 fn = 5   # Falsos Negativos
 
-# TODO: Calcule a Precisão usando a fórmula: VP / (VP + FP)
 precisao = vp / (vp + fp)
 
 print(f"{precisao * 100:.1f}")
@@ -106,3 +105,68 @@ True
 
 RESPOSTA = A diferença principal é que o TF-IDFas palavras aluguel e locação são palavras diferentes mesmo que tenham significados muitos parecidos.
 Já o Word Embeddings transforma as palavras em vetoresa partir do contexto em que elas aparecem, quais palavras possuem significados semelhantes.
+
+----------------- EXERCICIO 7 -------------------
+bruta = ["O", "sistema", "está", "muito", "lento", "hoje", "!"]
+stopwords = ["O", "está"]
+tokens_limpos = []
+
+for i in bruta :
+  if i in stopwords :
+    continue
+  elif i == "!" :
+    continue
+  else :
+    tokens_limpos.append(i)
+
+print(tokens_limpos)
+
+# SAÍDA DO CÓDIGO
+['sistema', 'muito', 'lento', 'hoje']
+
+RESPOSTA = Stopwords são palavras muito frequentes e de baixo valor e reduz o ruído nos dados.
+
+----------------- EXERCICIO 8 -------------------
+vp = 90
+fn = 10
+
+recall = vp / (vp + fn)
+
+print(f"{recall * 100:.2f}")
+
+
+# SAÍDA DO CÓDIGO
+90.00
+
+RESPOSTA = Ter um Recall alto é vital porque minimizar Falsos Negativos evita que casos realmente positivos (doenças, fraudes, ameaças) passem despercebidos,
+o que costuma ter consequências muito mais graves do que um Falso Positivo.
+
+----------------- EXERCICIO 9 -------------------
+palavras = ["correndo", "corredor", "correu"]
+radicais = []
+
+for i in palavras:
+    radicais.append(i[:4])
+
+print(radicais)
+
+# SAÍDA DO CÓDIGO
+['corr', 'corr', 'corr']
+
+RESPOSTA = O Stemming corta sufixos por regras mecânicas simples, sem analisar gramática ou consultar dicionários, o que o torna mais rápido do que a Lematização.
+
+----------------- EXERCICIO 10 -------------------
+probabilidades = [0.25, 0.30, 0.15]
+limiar = 0.60
+
+maior_confianca =  max(probabilidades)
+
+if maior_confianca >= limiar:
+  print("Intenção Confirmada")
+else: 
+  print("Acionar Fallback")
+
+# SAÍDA DO CÓDIGO
+Acionar Fallback
+
+RESPOSTA = O fallback deve informar que não concegue dar uma resposta certeira e que vai transferir para um humano.
